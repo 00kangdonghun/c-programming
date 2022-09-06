@@ -1,0 +1,153 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;
+	int ttho, tho, hun, ten, one;
+	scanf("%d", &n);
+	ttho = n / 10000;
+	tho = n % 10000 / 1000;
+	hun = n % 10000 % 1000 / 100;
+	ten = n % 10000 % 1000 % 100 / 10;
+	one = n % 10000 % 1000 % 100 % 10;
+	printf("%dTTHO %dTHO %dHUN %dTEN %d", ttho, tho, hun, ten, one);
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;
+	scanf("%d", &n);
+	int hour, min, sec;
+	hour = n / 3600;
+	min = n / 60 % 60;
+	sec = n % 60;
+	printf("%d:%d:%d", hour, min, sec);
+	return 0;
+}
+<응용>
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;
+	scanf("%d", &n);
+	int hour, min, sec;
+	hour = n / 3600;
+	min = n / 60 % 60;
+	sec = n % 60;
+	printf("%02d:%02d:%02d", hour, min, sec);
+	return 0;
+}
+
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	scanf("%d", &N);
+	int hun;
+	hun = N / 100 % 10;
+	printf("%d", hun);
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	scanf("%d", &N);
+	N = N + 500;
+	N = N / 1000 * 1000;
+	printf("%d", N);
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	double N;
+	double s;
+	scanf("%lf", &N);
+	s = (N / (2 * 3.14))*(N / (2 * 3.14))*3.14;
+	printf("%.0lf", s);
+	return 0;
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	scanf("%d", &N);
+	int x;
+	x = (20 <= N) && (N <= 30);
+	printf("%d", x);
+	return 0;
+}
+
+7.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char ch;
+	scanf("%c", &ch);
+	int x;
+	x = ('a' <= ch && ch <= 'z') || ('A' <= ch && ch <= 'Z');
+	printf("%d",x);
+	return 0;
+}
+
+8.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	scanf("%d", &N);
+	(N % 2 == 0) ? printf("even") : printf("odd");
+	return 0;
+}
+
+9.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M;
+	scanf("%d%d", &N, &M);
+	int x;
+	x = (M > N) ? M : N;
+	printf("%d", x);
+	return 0;
+}
+
+10.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M;
+	scanf("%d%d", &N, &M);
+	int x, y;
+	x = (M > N) ? M : N;
+	y = (M < N) ? M : N;
+	int a, b;
+	a = x / y;
+	b = x % y;
+	printf("%d\n", a);
+	printf("%d\n", b);
+	return 0;
+}
