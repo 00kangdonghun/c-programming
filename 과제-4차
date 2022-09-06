@@ -1,0 +1,321 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int N, max = 0, i, k = 0, grade[100], error = 0; //변수 선언
+	scanf("%d", &N);//출전자의 수를 입력받습니다
+	for (i = 0; i < N; i++) {
+		scanf("%d", &grade[i]); //성적입력
+	}
+	for (i = 0; i < N; i++) {
+		if (grade[i] > 100 || grade[i] < 0) {
+			error++; // 0점보다 작거나 100점보다 높은 점수이면 에러 1추가
+			printf("ERROR"); //ERROR출력
+			break; //반복문 빠져나옴
+		}
+	}
+
+	while (N > 1 && error == 0) { // N이 1보다 크면서 error가 0일때
+		int k = 0; //변수선언
+		for (i = 0; i < N; i = i + 2) {//2개씩 묶는다 
+			max = grade[i]; //첫번째원소를 최댓값으로 지정
+
+			for (int p = i + 1; p < i + 2 && p < N; p++) {
+				if (grade[p] > max) max = grade[p];
+			}//최댓값을 max변수에 넣는다
+
+			grade[k] = max;//grade에 max값을 저장
+			k++; //k를 1씩 증가
+		}
+
+		if (N % 2 == 1) {
+			N = N / 2 + 1;
+		}// 만약 홀수이면 N=N/2+1 
+		else { 
+			N = N / 2; 
+		}//짝수이면 N을 2로 나눈다
+
+		for (int j = 0; j < N; j++) { 
+			printf(" %d", grade[j]);//grade출력
+		}
+		printf("\n");
+	}
+	
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10], i, a[10], index1 = 0, index2 = 9; //변수들 선언 및 초기화
+	for (i = 0; i < 10; i++) { 
+		scanf("%d", &x[i]); //10개의 정수를 입력 받음
+	}
+	for (i = 0; i < 10; i++) { 
+		if (x[i] % 2 == 1) { //x[i]가 홀수일경우
+			a[index1++] = x[i]; //배열 a에 index1을 1씩 증가시키며 저장
+		}
+		else { //x[i]가 짝수일경우
+			a[index2--] = x[i]; //배열 a에 index2을 1씩 감소시키며 저장
+		}
+	}
+	for (i = 0; i < 10; i++) {
+		printf("%d ", a[i]); //배열 a출력
+	}
+	return 0; //0으로 반환
+}
+
+3-2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[20] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 }; //x[20]선언
+	int F, R, M; //F,R,M선언
+	int tmp, i; //tmp,i,선언
+	scanf("%d%d%d", &F, &R, &M); //F,R,M입력
+	tmp = x[R]; //tmp에 x[R]저장
+	for (i = 0; i < M - 1; i++) {
+		x[R - i] = x[R - i - 1]; //x[R - i]에 x[R - i - 1] 저장
+	}
+	x[R - M + 1] = tmp; //x[R - M + 1]에 tmp 저장
+	for (i = 0; i < 20; i++) {
+		printf("%d ", x[i]); //x[i]출력
+	} 
+	return 0; //0으로 반환
+}
+
+4-3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N; //정수N 선언
+	scanf("%d", &N);
+	int x[100]; //배열 x[100]선언
+	int max[500], min[500]; //배열 max[100],min[100]선언
+	int maxcnt = 0, mincnt = 0; //maxcnt,mincnt선언 및 0으로 초기화
+	int i; //정수 i 선언
+	for (i = 0; i < N; i++) { //i=0에서부터 i<N까지 i를 1씩 증가시킨다
+		scanf("%d", &x[i]); //N개의 정수를 출력받는다
+	}
+	for (i = N - 1; i >= 0; i--) { //i=N-1 에서부터 i>=0까지 i를 1씩 감소시킨다
+		printf(" %d", x[i]); //역순배열을 출력한다
+	}
+	printf("\n"); //줄바꿈
+
+
+	for (i = 0; i < N; i = i + 3) { //i를 앞에서 부터 3개씩 묶는다
+		if (i + 2 >= N) { //i+2가 N보다 크거나 같으면
+			if (i + 1 >= N) { //i+1가 N보다 크거나 같으면
+				max[maxcnt] = x[i]; //max[maxcnt]에 x[i]저장
+				min[mincnt] = x[i]; //min[mincnt]에 x[i]저장
+				maxcnt++; //maxcnt에 1더하기
+				mincnt++; //mincnt에 1더하기
+			}
+			else { //i+2가 N보다 작을때
+				if (x[i + 1] > x[i]) { //x[i+1]가 x[i]보다 크면
+					max[maxcnt] = x[i + 1]; //max[maxcnt]에 x[i+1]저장
+					min[mincnt] = x[i]; //min[mincnt]에 x[i]저장
+					maxcnt++; //maxcnt에 1더하기
+					mincnt++; //mincnt에 1더하기
+				}
+				else { //x[i+1]가 x[i]보다 작거나 같으면
+					max[maxcnt] = x[i]; //max[maxcnt]에 x[i]저장
+					min[mincnt] = x[i + 1]; //min[mincnt]에 x[i+1]저장
+					maxcnt++; //maxcnt에 1더하기
+					mincnt++; //mincnt에 1더하기
+				}
+			}
+		}
+		else { //i+2가 N보다 작으면
+			if (x[i] >= x[i + 1] && x[i] >= x[i + 2]) { //x[i]>=x[i+1] && x[i]>=x[i+2]이면
+				max[maxcnt] = x[i]; //max[maxcnt]에 x[i]저장
+				maxcnt++; //maxcnt에 1더하기
+				if (x[i + 1] >= x[i + 2]) //x[i+1]가 x[i+2]보다 크거나 같을때
+					min[mincnt] = x[i + 2]; //min[mincnt]에 x[i+2]저장
+				else //x[i+1]가 x[i+2]보다 작을때
+					min[mincnt] = x[i + 1]; //min[mincnt]에 x[i+1]저장
+				mincnt++; //mincnt에 1더하기
+			}
+			else if (x[i + 1] >= x[i] && x[i + 1] >= x[i + 2]) { //x[i+1]>=x[i] && x[i+1]>=x[i+2]이면
+				max[maxcnt] = x[i + 1]; //max[maxcnt]에 x[i+1]저장
+				maxcnt++; // maxcnt에 1더하기
+				if (x[i] >= x[i + 2]) //x[i]가 x[i+2]보다 크거나 같으면
+					min[mincnt] = x[i + 2]; //min[mincnt]에 x[i+2]저장
+				else //x[i]가 x[i+2]보다 작으면
+					min[mincnt] = x[i]; //min[mincnt]에 x[i]저장
+				mincnt++; // mincnt에 1더하기
+			}
+			else if (x[i + 2] >= x[i] && x[i + 2] >= x[i + 1]) { //x[i+2]>=x[i] && x[i+2]>=x[i+1]이면
+				max[maxcnt] = x[i + 2]; //max[maxcnt]에 x[i+2]저장
+				maxcnt++; // maxcnt에 1더하기
+				if (x[i] >= x[i + 1]) //x[i]가 x[i+1]보다 크거나 같으면
+					min[mincnt] = x[i + 1]; //min[mincnt]에 x[i+1]저장
+				else //x[i]가 x[i+1]보다 작으면
+					min[mincnt] = x[i]; //min[mincnt]에 x[i]저장
+				mincnt++; // mincnt에 1더하기
+			}
+		}
+	}
+	for (i = 0; i < maxcnt; i++) { //i=0에서부터 i<maxcnt까지 i를 1씩 증가시킨다
+		printf(" %d", max[i]); //max[i]를 출력한다
+	}
+	printf("\n"); //줄바꿈
+	for (i = 0; i < mincnt; i++) { //i=0에서부터 i<mincnt까지 i를 1씩 증가시킨다
+		printf(" %d", min[i]); // min[i]를 출력한다
+	}
+	printf("\n"); //줄바꿈
+
+
+	while (1) { //while문을 반복한다
+		int maxck = maxcnt; //maxck에 maxcnt저장
+		int minck = mincnt; //minck에 mincnt저장
+		if (maxcnt <= 1) //maxcnt가 1보다 작거나 같을때
+			break; //반복문 빠져나옴
+		maxcnt = 0; //maxcnt=0초기화
+		mincnt = 0; //mincnt=0초기화
+		for (i = 0; i < maxck; i = i + 3) { //i=0에서부터 i<maxck까지 i를 3개씩 묶는다
+			if (i + 2 >= maxck) { //i+2가 maxck보다 크거나 같을때 
+				if (i + 1 >= maxck) { //i+1이 maxck보다 크거나 같을때 
+					max[maxcnt] = max[i]; //max[maxcnt]에 max[i]를 저장
+					maxcnt++; //maxcnt에 1을 더하기
+				}
+				else { //i+1이 maxck보다 작을때
+					if (max[i + 1] > max[i]) { //max[i+1]이 max[i]보다 클때
+						max[maxcnt] = max[i + 1]; //max[maxcnt]에 max[i+1]을 저장
+						maxcnt++; //maxcnt에 1을 더하기
+					}
+					else { //max[i+1]이 max[i]보다 작거나 같을때
+						max[maxcnt] = max[i]; //max[maxcnt]에 max[i]을 저장
+						maxcnt++; //maxcnt에 1을 더하기
+					}
+				}
+			}
+			else { //i+2가 maxck보다 작을때
+				if (max[i] >= max[i + 1] && max[i] >= max[i + 2]) { //max[i]>=max[i+1] && max[i]>=max[i+2]이면
+					max[maxcnt] = max[i]; //max[maxcnt]에 max[i]을 저장
+					maxcnt++; //maxcnt에 1을 더하기
+				}
+				else if (max[i + 1] >= max[i] && max[i + 1] >= max[i + 2]) { //max[i + 1] >= max[i] && max[i + 1] >= max[i + 2]이면
+					max[maxcnt] = max[i + 1]; //max[maxcnt]에 max[i+1]을 저장
+					maxcnt++; //maxcnt에 1을 더하기
+				}
+				else if (max[i + 2] >= max[i] && max[i + 2] >= max[i + 1]) { //max[i + 2] >= max[i] && max[i + 2] >= max[i + 1]이면
+					max[maxcnt] = max[i + 2]; //max[maxcnt]에 max[i+2]을 저장
+					maxcnt++; //maxcnt에 1을 더하기
+				}
+			}
+		}
+
+		for (i = 0; i < minck; i = i + 3) { //i=0에서부터 i<minck까지 i를 3개씩 묶는다
+			if (i + 2 >= minck) { //i+2가 minck보다 크거나 같을때 
+				if (i + 1 >= minck) { //i+1이 minck보다 크거나 같을때
+					min[mincnt] = min[i]; //min[mincnt]에 min[i] 저장
+					mincnt++; //mincnt에 1을 더하기
+				}
+				else { //i+1이 minck보다 작을때
+					if (min[i + 1] < min[i]) { //min[i+1]이 min[i]보다 작을때
+						min[mincnt] = min[i + 1]; //min[mincnt]에 min[i+1]을 저장
+						mincnt++; //mincnt에 1을 더하기
+					}
+					else { //min[i+1]이 min[i]보다 크거나 같을때
+						min[mincnt] = min[i]; //min[mincnt]에 min[i]을 저장
+						mincnt++; //mincnt에 1을 더하기
+					}
+				}
+			}
+			else { //i+2가 minck보다 작을때 
+				if (min[i] <= min[i + 1] && min[i] <= min[i + 2]) { //min[i] <= min[i + 1] && min[i] <= min[i + 2]이면
+					min[mincnt] = min[i]; //min[mincnt]에 min[i]을 저장
+					mincnt++; //mincnt에 1을 더하기
+				}
+				else if (min[i + 1] <= min[i] && min[i + 1] <= min[i + 2]) { //min[i + 1] <= min[i] && min[i + 1] <= min[i + 2]이면
+					min[mincnt] = min[i + 1]; //min[mincnt]에 min[i+1]을 저장 
+					mincnt++; //mincnt에 1을 더하기
+				}
+				else if (min[i + 2] < min[i] && min[i + 2] < min[i + 1]) { //min[i + 2] < min[i] && min[i + 2] < min[i + 1]이면
+					min[mincnt] = min[i + 2]; //min[mincnt]에 min[i+2]을 저장
+					mincnt++; //mincnt에 1을 더하기
+				}
+			}
+		}
+		for (i = 0; i < maxcnt; i++) { //i=0에서부터 i<maxcnt까지 i를 1씩 증가시킨다
+			printf(" %d", max[i]); //max[i]를 출력한다
+		}
+		printf("\n"); //줄바꿈
+		for (i = 0; i < mincnt; i++) { //i=0에서부터 i<mincnt까지 i를 1씩 증가시킨다
+			printf(" %d", min[i]); //min[i]를 출력한다
+		}
+		printf("\n"); //줄바꿈
+	}
+
+	return 0; //0으로 반환
+}
+
+5-2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a[100], b[100], x[200], n, f, i, al = 0, bl = 0, j, tmp; //변수 선언
+
+	while (1) { //반복
+		scanf("%d", &n); //n입력
+		if (n < 0) //n이 0보다 작을때
+			break; //반복문을 빠져 나온다
+		f = 1; //f에 1저장
+		for (i = 0; i < al; i++) { 
+			if (n == a[i]) //n이 a[i]일때
+				f = 0; //f에 0저장
+		}
+		if (f == 1) { //f가 1일때
+			a[al] = n; //a[al]에 n저장
+			al++; //al를 1씩 증가
+		}
+	}
+	while (1) { //반복
+		scanf("%d", &n); //n입력
+		if (n < 0) //n이 0보다 작을때
+			break; //반복문을 빠져 나온다
+		f = 1; //f에 1저장
+		for (i = 0; i < bl; i++) {
+			if (n == b[i]) //n이 b[i]일때
+				f = 0; //f에 0저장
+		}
+		if (f == 1) { //f가 1일때
+			b[bl] = n; //b[bl]에 n저장
+			bl++; //bl를 1씩 증가
+		}
+	}
+	int k = al; //k에 al저장
+	for (i = 0; i < al; i++) {
+		x[i] = a[i]; //x[i]에 a[i]저장
+	}
+	for (i = 0; i < bl; i++) {
+		f = 1; //f에 1저장
+		for (j = 0; j < al; j++) {
+			if (b[i] == x[j]) //b[i]가 x[j]와 같을때
+				f = 0; //f에 0저장
+		}
+		if (f == 1) { //f가 1일때
+			x[k] = b[i]; //x[k]에 b[i]저장
+			k++; //k를 1씩 증가시킨다
+		}
+	}
+	for (i = 0; i < k - 1; i++) {
+		for (j = 0; j < k - 1; j++) {
+			if (x[j] > x[j + 1]) { //x[j]가 x[j+1]보다 클때
+				tmp = x[j + 1]; 
+				x[j + 1] = x[j];
+				x[j] = tmp; //x[j]와 x[j+1]을 바꾼다
+			}
+		}
+	}
+	for (i = 0; i < k; i++) {
+		printf(" %d", x[i]); //x[i]를 출력한다
+	}
+	return 0; //0으로 반환
+}
