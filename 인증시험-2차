@@ -1,0 +1,327 @@
+1.
+#pragma warning (disable: 4996) 
+#include<stdio.h>
+int main() {
+	int i, n, m = 0, m_i;
+	int num[100];
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		scanf("%d", &num[i]);
+	}
+	for (i = 0; i < n - 1; i++) {
+		if (num[n - 1] > num[i]) {
+			if (m <= num[n - 1] - num[i]) {
+				m = num[n - 1] - num[i];
+				m_i = i;
+			}
+		}
+		if (num[n - 1] < num[i]) {
+			if (m <= num[i] - num[n - 1]) {
+				m = num[i] - num[n - 1];
+				m_i = i;
+			}
+		}
+	}
+	printf("%d", num[m_i]);
+
+	return 0;
+}
+
+2-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int x[100], i, M, cnt = 0, sum = 0, j, a, b;
+	for (i = 0; i < 100; i++) {
+		scanf("%d", &x[i]);
+		if (x[i] < 0)
+			break;
+		cnt++;
+	}
+	scanf("%d", &M);
+	for (i = 0; i < cnt; i += M) {
+		sum = 0;
+		for (j = i; j < i + M; j++) {
+			if (i + M > cnt) {
+				for (j = i; j < cnt; j++) {
+					sum += x[j];
+				}
+			}
+			else {
+				for (j = i; j < i + M; j++) {
+					sum += x[j];
+				}
+			}
+		}
+		printf("%d ", sum);
+	}
+	
+	return 0;
+}
+
+2-2(x).
+
+3-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int N, x[20], i, j, tmp, cnt = 1, a, y[20], b = 0;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < N - 1; i++) {
+		for (j = 0; j < N - 1 - i; j++) {
+			if (x[j] < x[j + 1]) {
+				tmp = x[j];
+				x[j] = x[j + 1];
+				x[j + 1] = tmp;
+			}
+		}
+	}
+	for (i = 0; i < N; i++) {
+		printf(" %d", x[i]);
+	}
+	printf("\n");
+	for (i = 0; i < N; i++) {
+		a = cnt;
+		y[b++] = cnt;
+		for (j = i + 1; j < N; j++) {
+			if (x[i] == x[j]) {		
+				cnt++;
+				y[b++] = a;
+			}
+		}
+		cnt++;
+	}
+	for (i = 0; i < N; i++) {
+		printf(" %d", y[i]);
+	}
+	printf("\n");
+
+	return 0;
+}
+
+3-2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int N, x[20], i, j, tmp, cnt = 1, a, y[20], b = 0, q, w;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < N - 1; i++) {
+		for (j = 0; j < N - 1 - i; j++) {
+			if (x[j] < x[j + 1]) {
+				tmp = x[j];
+				x[j] = x[j + 1];
+				x[j + 1] = tmp;
+			}
+		}
+	}
+	for (i = 0; i < N; i++) {
+		printf(" %d", x[i]);
+	}
+	printf("\n");
+	for (i = 0; i < N; i++) {
+		a = cnt;
+		y[b++] = cnt;
+		for (j = i + 1; j < N; j++) {
+			if (x[i] == x[j]) {		
+				cnt++;
+				y[b++] = a;
+			}
+		}
+		cnt++;
+	}
+	for (i = 0; i < N; i++) {
+		printf(" %d", y[i]);
+	}
+	printf("\n");
+	q = N * 3 / 10;
+	w = N * 7 / 10;
+	for (i = 0; i < N; i++) {
+		if (0 <= y[i] && y[i] <= q) {
+			printf(" A");
+		}
+		else if (q < y[i] && y[i] <= w) {
+			printf(" B");
+		}
+		else {
+			printf(" C");
+		}
+	}
+
+	return 0;
+}
+
+3-3(x).
+
+4-1.
+#pragma warning (disable:4996)
+#include<stdio.h>
+int main() {
+	int n = 0, arr[110], is = 0, cnt = 1, max = 0;
+	int i = 0, j = 0;
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		scanf("%d", &arr[i]);
+	}
+	for (i = 0; i < n - 1; i++) {
+		if (arr[i] * arr[i + 1] < 0) {
+			cnt++;
+		}
+		else {
+			if (max < cnt) {
+				max = cnt;
+			}
+			cnt = 1;
+		}
+	}
+	if (max < cnt) {
+		max = cnt;
+	}
+	printf("%d", max);
+
+	return 0;
+}
+
+4-2.
+#pragma warning (disable:4996)
+#include<stdio.h>
+int main() {
+	int n = 0, arr[110], is = 0, cnt = 1, max = 1, max_index = 0;
+	int i = 0, j = 0, max_num[110], k = 0;
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		scanf("%d", &arr[i]);
+	}
+	for (i = 0; i < n - 1; i++) {
+		if (arr[i] * arr[i + 1] < 0) {
+			cnt++;
+		}
+		else {
+			if (max <= cnt) {
+				max = cnt;
+				for (k = 0, j = i - cnt + 1; j < i + 1; j++, k++) {
+					max_num[k] = arr[j];
+				}
+				max_index = cnt;
+			}
+			cnt = 1;
+		}
+	}
+	if (max <= cnt) {
+		max = cnt;
+		for (k = 0, j = i - cnt + 1; j < i + 1; j++, k++) {
+			max_num[k] = arr[j];
+		}
+		max_index = cnt;
+	}
+	printf("%d\n", max);
+	for (i = 0; i < max_index; i++) {
+		printf(" %d", max_num[i]);
+	}
+
+	return 0;
+}
+
+5-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int reverse_num(int N);
+int main(void) {
+	int N;
+	scanf("%d", &N);
+	printf("%d", reverse_num(N));
+	return 0;
+}
+int reverse_num(int N) {
+	int a = 0;
+	while (N > 0) {
+		a = a * 10 + N % 10;
+		N /= 10;
+	}
+	return a;
+}
+
+5-2(x).
+
+5-3.
+#pragma warning (disable:4996)
+#include<stdio.h>
+int reverse_num(int x);
+int del_dupnum(int x);
+int main() {
+	int N, M, n1;
+	int gap, maximum, num_mid, mid_max = 0;
+	int  i = 0, j = 0, k = 0;
+	scanf("%d", &N);
+	while (N >= 0) {
+		n1 = N;
+		N = reverse_num(N);
+		M = del_dupnum(N);
+		printf(" %d", M);
+		if (n1 > M) {
+			gap = n1 - M;
+			num_mid = n1;
+		}
+		else {
+			gap = M - n1;
+			num_mid = n1;
+		}
+		if (gap > mid_max) {
+			mid_max = gap;
+			maximum = n1;
+		}
+		scanf("%d", &N);
+	}
+	printf("\n");
+	printf("%d %d", maximum, mid_max);
+
+	return 0;
+}
+int del_dupnum(int x) {
+	int i = 0, j = 0, k = 0;
+	int b = 0, cnt = 0, a1, sum = 0, c;
+	int arr[10], cntx = 0, tmp = 1, tttp = 0;
+	a1 = x;
+	while (x > 0) {
+		x /= 10;
+		cnt++;
+	}
+	x = a1;
+	for (k = 0; k < cnt; k++) {
+		tmp = 1; tttp = 0;
+		for (i = k; i < cnt - 1; i++) {
+			tmp *= 10;
+		}
+		c = x / tmp;
+		for (i = 0; i < cntx; i++) {
+			if (c == arr[i])
+				tttp = 1;
+		}
+		if (tttp == 0) {
+			sum *= 10;
+			arr[cntx++] = c;
+			sum += c;
+		}
+		x = x % tmp;
+	}
+	sum = 0;
+	for (i = 0; i < cntx; i++) {
+		sum *= 10;
+		sum += arr[i];
+	}
+	return sum;
+}
+int reverse_num(int x) {
+	int tmp = 0;
+	for (; x > 0; x /= 10) {
+		tmp *= 10;
+		tmp += x % 10;
+	}
+	return tmp;
+}
+
