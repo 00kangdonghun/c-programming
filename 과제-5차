@@ -1,0 +1,233 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int num_digit(int N);
+int convert_top(int N, int cnt);
+int convert_bottom(int N); 
+int main() {
+	int N, a, i, b; //변수 선언
+	scanf("%d", &N); //N입력
+	a = num_digit(N); //a에 num_digit(N)저장
+	b = a; //b에 a저장
+	if (num_digit(N) % 2 == 1) { //num_digit(N)이 홀수일때
+		for (i = 0; i < (b + 1) / 2; i++) { 
+			N = convert_top(N, a); //N에 convert_top(N, a) 저장
+			a -= 2; //a에 a-2저장
+		}
+	}
+	else { //num_digit(N)이 짝수일때
+		for (i = 0; i < b / 2; i++) {
+			N = convert_bottom(N); //N에 convert_bottom(N) 저장
+		}
+	}
+	return 0;
+}
+int num_digit(int N) { 
+	int cnt = 0; //변수 선언
+	while (N > 0) { //N이 0보다 클동안
+		N /= 10; 
+		cnt++; //N의 자릿수 카운트
+	} 
+	return cnt; //cnt를 반환
+}
+int convert_top(int N, int s) {
+	int i = 1, g = 1, k; //변수 선언
+	while (i <= s - 2) { //i가 s-2보다 작을동안
+		g *= 10; 
+		i++; //g에 10의 s-2승을 저장
+	}
+	k = N / g; //k에 N/g를 저장
+	if (('a' <= k && k <= 'z') || ('A' <= k && k <= 'Z')) { //k가 알파벳일때
+		printf("%c", k); //k를 출력한다
+	}
+	else //그외의 경우
+		printf("*"); //*을 출력한다
+	return N - k * g; //남은수를 반환한다
+}
+int convert_bottom(int N) {
+	int k; //변수 선언
+	k = N % 100; //N의 끝두숫자를 k에 저장
+	if (('a' <= k && k <= 'z') || ('A' <= k && k <= 'Z')) { //k가 알파벳일때
+		printf("%c", k); //k를 출력한다
+	}
+	else //그외의 경우
+		printf("*"); //*을 출력한다
+	return N / 100; //남은수를 반환한다
+}
+
+2-2.
+#pragma warning (disable: 4996)
+#include <stdio.h>
+char decrypt(char ch, int m);
+char encrypt(char ch, int m);
+int main() { 
+	char x[100], y[100]; //변수 선언
+	int m1, m2, i = 0, size = 0; //변수 선언
+
+	while (1) { 
+		scanf("%c", &x[i]); //x[i]입력
+		if (x[i] == '*') 
+			break; //x[i]가 *이면 반복문 빠져 나온다
+		i++; // i를 1씩 증가시킨다
+		size++; // size를 1씩 증가시킨다
+	}
+	scanf("%d %d", &m1, &m2); //m1,m2를 입력
+	for (i = 0; i < size; i++) {
+		y[i] = decrypt(x[i], m1); //y[i]에 decrypt(x[i], m1)를 저장
+		printf("%c", y[i]); //y[i]를 출력
+	}
+	printf("\n"); //줄바꿈
+	for (i = 0; i < size; i++) {
+		printf("%c", encrypt(y[i], m2)); //encrypt(y[i], m2)를 출력
+	}
+	return 0; //0으로 반환
+}
+char decrypt(char ch, int m) {
+	int x; //변수 선언
+	char cc; //변수 선언
+	if ('a' <= ch && ch <= 'z') { //ch가 소문자 일때
+		x = 'z' - ch; //x에 'z' - ch저장
+		cc = 'z' - (x + m) % 26; //cc에 'z' - (x + m) % 26저장
+	}
+	else if ('A' <= ch && ch <= 'Z') { //ch가 대문자 일때
+		x = 'Z' - ch; //x에 'Z' - ch저장
+		cc = 'Z' - (x + m) % 26; //cc에 'Z' - (x + m) % 26저장
+	}
+	else //그외의 경우
+		return ch; //ch로 반환
+	return cc; //cc로 반환
+}
+char encrypt(char ch, int m) {
+	int x; //변수 선언
+	char cc; //변수 선언
+	if ('a' <= ch && ch <= 'z') { //소문자일때
+		x = ch - 'a'; //x에 ch - 'a'저장
+		cc = 'a' + (x + m) % 26; //cc에 'a' + (x + m) % 26저장
+	}
+	else if ('A' <= ch && ch <= 'Z') { //대문자일때
+		x = ch - 'A'; //x에 ch - 'A'저장
+		cc = 'A' + (x + m) % 26; //cc에 'A' + (x + m) % 26저장
+	}
+	else //그외의 경우
+		return ch; //ch를 반환
+	return cc; //cc를 반환
+} 
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int multiple(int x, int y);
+int maximum(int x, int y);
+int digit_maximum(int x);
+int main() {
+	int N, M, K, a, b, c, max1 = 0, max2 = 0, i; //변수 선언
+	scanf("%d%d%d", &N, &M, &K); ///N,M,K입력
+	for (i = N; i <= M; i++) { 
+		if (multiple(i, K) == 1){ //K의 배수 일때
+			a = digit_maximum(i); //각 자리수 중 최대값을 a에 저장
+			if (a > max1)
+				max1 = a; //각 자리수 중 최대값구하기
+		}
+		else { //K의 배수가 아닐때
+			b = i % K; //K로 나눈 나머지 b에 저장
+			if (b > max2)
+				max2 = b; //K로 나눈 나머지 중 최대값 구하기
+		}
+		c = maximum(max1, max2); //max1,max2중 최대값 구하기
+	}
+	printf("%d", c); //c를 출력한다
+	return 0;
+}
+int multiple(int x, int y) {
+	if (x%y == 0) { //x가 y의 배수 일때
+		return 1; //1을 반환
+	} 
+	else { //x가 y의 배수가 아닐때
+		return 0; //0을 반환
+	}
+}
+int maximum(int x, int y) {
+	if (x > y) { //x가 y보다 클때
+		return x; //x를 반환
+	}
+	else { //그외일때
+		return y; //y를 반환
+	}
+}
+int digit_maximum(int x) {
+	int a, b, max; //변수 선언
+	a = x % 10; //a에 마지막 숫자 저장
+	while (x > 0) { //x>0일 동안 
+		x /= 10; 
+		b = x % 10; //각 자리수를 구한다
+		max = maximum(a, b); //각 자리수 중 최대값을 저장한다
+		a = max; 
+		if (x < 10)
+			break; //x가 한자리수일때 반복문을 빠져 나온다
+	}
+	return max; //max를 반환한다
+}
+
+4-3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int count(int N, int M);
+int main() {
+	int N, i, sum[10] = { 0 }; //변수 선언
+	while (1) { 
+		scanf("%d", &N); //N입력
+		if (N < 0)  
+			break; //N이 0보다 작을때 반복문 빠져 나옴
+		for (i = 0; i <= 9; i++) { 
+			sum[i] += count(N, i); //sum[i]에 count(N, i)를 더함
+		}
+	}
+	for (i = 0; i < 10; i++) {
+		printf("%d ", sum[i]); //sum[i]출력
+	}
+	return 0; //0으로 반환
+}
+int count(int N, int M) {
+	int cnt = 0, a; //변수 선언
+	while (N) { 
+		a = N % 10; //N의 각자리 분리
+		if (a == M) { 
+			cnt++;  //N의 각자리가 M과 같을때 cnt에 1씩 더한다
+		} 
+		N /= 10; //N의 각자리 분리
+	}
+	return cnt; //cnt를 반환한다
+}
+
+5-3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int add_digits(int N);
+int main() {
+	int N, min, small, M, i = 0; //변수 선언
+	while (1) {
+		scanf("%d", &N); //N입력
+		M = N; //M에 N저장
+		if (N < 0) //N이 0보다 작을때
+			break; //반복문을 빠져 나온다
+		while (N >= 10) { //N이 10보다 크거나 같을동안
+			N = add_digits(N); //N에 add_digits(N)저장
+		}
+		if (i == 0 || min > N) { //i가 0이거나 min이 N보다 클때
+			min = N; //min에 N저장
+			small = M; //small에 M저장
+		}
+		i++; //i를 1씩 증가시킨다
+	}
+	printf("%d %d", small, min); //small,min출력
+	return 0; //0으로 반환
+}
+int add_digits(int N) {
+	int a, sum = 0; //변수 선언
+	while (N) { 
+		a = N % 10;
+		sum += a;
+		N /= 10; //N의 각자리수를 더한다
+	}
+	return sum; //sum을 반환한다
+}
