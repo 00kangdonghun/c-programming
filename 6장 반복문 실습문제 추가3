@@ -1,0 +1,158 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int num1, num2;
+	int big, small;
+	int i, j;
+	scanf("%d%d", &num1, &num2);
+	big = num1 > num2 ? num1 : num2;
+	small = num1 > num2 ? num2 : num1;
+	for (i = small; i <= big; i++) {
+		for (j = 2; j < i; j++) {
+			if (i % j == 0) break;
+		}
+		if (i == j)
+			printf(" %d", i);
+	}
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;
+	scanf("%d", &n);
+	while (n!=1) {
+		for (int i = 2; i <= n; i++) {
+			if (n%i == 0) {
+				printf("%d ", i);
+				n /= i;
+				break;
+			}
+		}
+	}
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, sum1 = 0, sum2 = 0, cnt1 = 0, cnt2 = 0;
+	while (1) {
+		scanf("%d", &n);
+		if (n <= 0)
+			break;
+		if (n % 2 == 0) {
+			sum1 += n;
+			cnt1++;
+		}
+		else {
+			sum2 += n;
+			cnt2++;
+		}
+	}
+	printf("%.2lf %.2lf", (double)sum1/cnt1, (double)sum2/cnt2);
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, sum = 0;
+	while (1) {
+		scanf("%d", &n);
+		sum = 0;
+		while (n) {
+			sum += n % 10;
+			n /= 10;
+		}
+		printf("%d\n", sum);
+		if (sum <= 10)
+			break;
+	}
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, a = 0;
+	scanf("%d", &n);
+	while (n) {
+		if (n % 10 != 0) {
+			a = a * 10 + n % 10;
+		}
+		n /= 10;
+	}
+	while (a) {
+		n = n * 10 + a % 10;
+		a /= 10;
+	}
+	printf("%d", n*n);
+	return 0;
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, sum = 0, mul = 1;
+	scanf("%d", &n);
+	while (n) {
+		sum += (n % 10 * mul);
+		mul *= 2;
+		n /= 10;
+	}
+	printf("%d\n", sum);
+	return 0;
+}
+
+7.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, sum = 0;
+	scanf("%d", &n);
+	while (n) {
+		sum = (sum * 10) + (n % 2);
+		n /= 2;
+	}
+	while (sum) {
+		n = (n * 10) + (sum % 10);
+		sum /= 10;
+	}
+	printf("%d\n", n);
+	return 0;
+}
+
+8.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, m, sum = 0;
+	scanf("%d", &n);
+	while (1) {
+		scanf("%d", &m);
+		if (m <= 0)
+			break;
+		if (n % 2 == 0) {
+			sum += m;
+		}
+		n = m;
+	}
+	printf("%d", sum);
+	return 0;
+}
