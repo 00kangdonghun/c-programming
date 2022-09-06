@@ -1,0 +1,128 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, a, sum = 1;
+	scanf("%d", &N);
+	while (N > 0) {
+		a = N % 10;
+		N /= 10;
+		sum *= a;
+	}
+	printf("%d", sum);
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c;
+	int i, tmp;
+	while (1) {
+		scanf("%d%d%d", &a, &b, &c);
+		if (a == b || b == c || c == a)
+			break;
+		for (i = 0; i < 2; i++) {
+			if (a < b) {
+				tmp = a;
+				a = b;
+				b = tmp;
+			}
+			if (b < c) {
+				tmp = b;
+				b = c;
+				c = tmp;
+			}
+		}
+		printf("%d %d\n", a, c);
+	}
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, i, x = 1, sum = 0;
+	while (1) {
+		scanf("%d%d", &a, &b);
+		if (a <= 0 || b <= 0)
+			break;
+		x = 1;
+		for (i = 0; i < b; i++) {
+			x *= a;
+		}
+		sum += x;
+	}
+	printf("%d", sum);
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, i, big, small;
+	while (1) {
+		scanf("%d%d", &a, &b);
+		if (a <= 0 || b <= 0)
+			break;
+		big = a >= b ? a : b;
+		small = a > b ? b : a;
+		for (i = big; i <= a * b; i++) {
+			if (i%a == 0 && i%b == 0) {
+				printf("%d\n", i);
+				break;
+			}
+		}
+	}
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, i, j;
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n - i; j++) {
+			printf(" %d", (i + j) * 2 + 1);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int num;
+	int i, j;
+	scanf("%d", &num);
+	for (i = 0; i < num; i++) {
+		if (i == num - 1) {
+			for (j = 0; j < num; j++)
+				printf("*");
+		}
+		else {
+			for (j = 0; j <= i; j++) {
+				if (j == 0 || j == i)
+					printf("*");
+				else
+					printf(" ");
+			}
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
