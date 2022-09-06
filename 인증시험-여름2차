@@ -1,0 +1,171 @@
+1-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int n, i, j, x[100], tmp, sum = 0;
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - 1; j++) {
+			if (x[j] < x[j + 1]) {
+				tmp = x[j];
+				x[j] = x[j + 1];
+				x[j + 1] = tmp;
+			}
+		}
+	}
+	sum = x[0] + x[1];
+	printf("%d", sum);
+	
+	return 0;
+}
+
+1-2.
+
+2-1.
+
+2-2.
+
+3-1(x).
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int x[10], i, j, y[10], a = 0, z[10], b = 0, index;
+	for (i = 0; i < 10; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		index = i;
+		if (x[i] % 10 == 0) {
+			y[index] = x[i];
+		}
+		else if ((x[i] + x[i + 1]) % 10 == 0) {
+			y[index] = x[i];
+			y[index + 1] = x[i + 1];
+		}
+	}
+	for (i = 0; i < 10; i++) {
+		if (x[i] != y[i]) {
+			printf("%d ", x[i]);
+		}
+	}
+
+	return 0;
+}
+
+3-2.
+
+4-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int n, i, j, x[100], tmp, y[100];
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < n; i++) {
+		y[i] = x[i];
+	}
+	for (i = 0; i < n - 1; i++) {
+		for (j = 0; j < n - 1; j++) {
+			if (x[j] > x[j + 1]) {
+				tmp = x[j];
+				x[j] = x[j + 1];
+				x[j + 1] = tmp;
+			}
+		}
+	}
+	for (i = 0; i < n; i++) {
+		if (y[i] != x[i]) {
+			printf("%d ", y[i]);
+		}
+	}
+	printf("\n");
+	for (i = 0; i < n; i++) {
+		printf("%d ", x[i]);
+	}
+
+	return 0;
+}
+
+4-2.
+
+5-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int func_num(int N);
+int main() {
+	int N;
+	scanf("%d", &N);
+	printf("%d",func_num(N));
+
+	return 0;
+}
+int func_num(int N) {
+	int a, cnt = 0, b = 0;
+	while (1) {
+		scanf("%d", &a);
+		if (a < 0)
+			break;
+		if (N < a) {
+			cnt++;
+			b = b * 10 + a;
+		}
+	}
+	if (cnt == 0) {
+		return 0;
+	}
+	else {
+		return b;
+	}
+}
+
+5-2(x).
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int func_num1(int x, int y, int z);
+int func_num2(int x, int y, int z);
+int func_diff(int x, int y);
+int main() {
+	
+
+}
+int func_num1(int x, int y, int z) {
+	int a, cnt = 10;
+	if (x > y) {
+		while (x) {
+			a = x % 10;
+			x /= 10;
+			cnt *= 10;
+		}
+		return z * cnt + x;
+	}
+	else {
+		return z;
+	}
+}
+int func_num2(int x, int y, int z) {
+	int a, cnt = 10;
+	if (x < y) {
+		while (x) {
+			a = x % 10;
+			x /= 10;
+			cnt *= 10;
+		}
+		return z * cnt + x;
+	}
+	else {
+		return z;
+	}
+}
+int func_diff(int x, int y) {
+	if (x > y) {
+		return x - y;
+	}
+	else {
+		return y - x;
+	}
+}
