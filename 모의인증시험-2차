@@ -1,0 +1,170 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[3], i, j, tmp;
+	while (1) {
+		for (i = 0; i < 3; i++) {
+			scanf("%d", &x[i]);
+		}
+		if (x[0] == 0 && x[1] == 0 && x[2] == 0) 
+			break;
+		for (i = 0; i < 2; i++) {
+			for (j = 0; j < 2; j++) {
+				if (x[j] < x[j + 1]) {
+					tmp = x[j + 1];
+					x[j + 1] = x[j];
+					x[j] = tmp;
+				}
+			}
+		}
+		for (i = 0; i < 3; i++) {
+			printf("%d ", x[i]);
+		}
+		printf("\n");
+	}
+	return 0; 
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int N;
+	int a, b, c;
+	scanf("%d", &N);
+	for (a = 900; a < N; a += 900) {
+		for (b = 750; b < N; b += 750) {
+			for (c = 200; c < N; c += 200) {
+				if (a + b + c == N) {
+					if (b / 750 % 2 == 0 && (c / 200 < a / 900 || c / 200 < b / 750)) {
+						printf("%d %d %d\n", a / 900, b / 750, c / 200);
+					}
+
+				}
+
+			}
+		}
+	}
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j, x[50], y[50];
+	int cnt = 0, a = 0, index = 0;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < N; i++) {
+		for (j = 0; j < index; j++) {
+			if (x[i] == y[j])
+				a = 1;
+		}
+		if (a == 0)
+			y[index++] = x[i];
+		a = 0;
+	}
+	for (i = 0; i < index; i++) {
+		cnt = 0;
+		for (j = 0; j < N; j++) {
+			if (y[i] == x[j]) {
+				cnt++;
+			}
+		}
+		printf("%d %d\n", y[i], cnt);
+	}
+	return 0; 
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	char x[100], y[100], n = 0, m = 0;
+	int i, a = 0, max, min;
+	for (i = 0; i < 100; i++) {
+		scanf("%c", &x[i]);
+		if (x[i] == '*')
+			break;
+		n++;
+	}
+	for (i = 0; i < 100; i++) {
+		scanf("%c", &y[i]);
+		if (y[i] == '*')
+			break;
+		m++;
+	}
+	max = n > m ? m : n;
+	min = n < m ? m : n;
+	for (i = 0; i < min; i++) {
+		if (x[i] > y[i]) {
+			a = 1;
+			break;
+		}
+		else if (x[i] < y[i]) {
+			a = 2;
+			break;
+		}
+		else {
+			a++;
+		}
+	}
+	if (a == 1) {
+		for (i = 0; i < m; i++) {
+			printf("%c", y[i]);
+		}
+	}
+	else if (a == 2) {
+		for (i = 0; i < n; i++) {
+			printf("%c", x[i]);
+		}
+	}
+	else if (a == min) {
+		if (m >= n) {
+			for (i = 0; i < n; i++) {
+				printf("%c", x[i]);
+			}
+		}
+		else if (m < n) {
+			for (i = 0; i < m; i++) {
+				printf("%c", y[i]);
+			}
+		}
+	}
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int isLeapYear(int year);
+int getTotalNumberOfLeapYear(int startYear, int endYear);
+int main(void) {
+	int startYear = 0, endYear = 0;
+	scanf("%d%d", &startYear, &endYear);
+	printf("%d", getTotalNumberOfLeapYear(startYear, endYear));
+	return 0; 
+}
+int isLeapYear(int year) {
+	if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+int getTotalNumberOfLeapYear(int startYear, int endYear) {
+	int cnt = 0;
+	for (int i = startYear; i <= endYear; i++) {
+		if (isLeapYear(i) == 1) {
+			cnt += 1;
+		}
+	}
+	return cnt;
+}
