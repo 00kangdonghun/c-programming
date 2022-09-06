@@ -1,0 +1,329 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10];
+	int i;
+	for (i = 0; i < 10; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		if (x[i] % 2 == 0) {
+			printf(" %d", x[i]);
+		}
+	}
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10];
+	int i, sum = 0;
+	for (i = 0; i < 10; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		sum += x[i];
+	}
+	printf("%d", sum);
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10], y[10], z[10];
+	int i
+	#pragma warning (disable: 4996)
+	#include<stdio.h>
+	
+	int main() {
+		int x[10], y[10], z[10];
+		int i;
+		for (i = 0; i < 10; i++) {
+			scanf("%d", &x[i]);
+		}
+		for (i = 0; i < 10; i++) {
+			scanf("%d", &y[i]);
+		}
+		for (i = 0; i < 10; i++) {
+			z[i] = x[i] + y[9 - i];
+			printf(" %d", z[i]);
+		}
+		return 0;
+	}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10], y[10], z[10];
+	int i;
+	for (i = 0; i < 10; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		scanf("%d", &y[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		z[i] = x[i] + y[9 - i];
+		printf(" %d", z[i]);
+	}
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10];
+	int i, max;
+	for (i = 0; i < 10; i++) {
+		scanf("%d", &x[i]);
+	}
+	max = x[0];
+	for (i = 0; i < 10; i++) {
+		if (max < x[i]) {
+			max = x[i];
+		}
+	}
+	printf("%d", max);
+	return 0;
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10];
+	int i, j, max;
+	for (i = 0; i < 10; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		max = 0;
+		for (j = 0; j < 10; j++) {
+			if (x[i] < x[j]) {
+				max++;
+			}
+		}
+		printf(" %d", max);
+	}
+	return 0;
+}
+
+7.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int x[10], y[10];
+	int i, j, index = 0;
+	int k = 0;
+	for (i = 0; i < 10; i++)
+		scanf("%d", &x[i]);
+	for (i = 0; i < 10; i++) {
+		for (j = 0; j < index; j++) {
+			if (x[i] == y[j])
+				k = 1;
+		}
+		if (k == 0)
+			y[index++] = x[i];
+		k = 0;
+	}
+	for (i = 0; i < index; i++)
+		printf(" %d", y[i]);
+	return 0;
+}
+
+8.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, x[10];
+	int i, a = 0;
+	scanf("%d", &N);
+	while (N > 0) {
+		x[a++] = N % 10;
+		N /= 10;
+	}
+	for (i = 0; i < a; i++) {
+		printf(" %d", x[i]);
+	}
+	return 0;
+}
+
+9.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, x[10], a = 0;
+	int i;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < N; i++) {
+		a = a * 10 + x[i];
+	}
+	printf("%d", a);
+	return 0;
+}
+
+10.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	double x[10];
+	int i;
+	for (i = 0; i < 10; i++) {
+		scanf("%lf", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		if (x[i] > 0) {
+			printf(" %.1lf", x[i]);
+		}
+	}
+	return 0;
+}
+
+11.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	double x[10], min;
+	int i;
+	for (i = 0; i < 10; i++) {
+		scanf("%lf", &x[i]);
+	}
+	min = x[0];
+	for (i = 0; i < 10; i++) {
+		if (min>x[i]) {
+			min = x[i];
+		}
+	}
+	printf("%.1lf", min);
+	return 0;
+}
+
+12.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	double x[10];
+	int i, j, min;
+	for (i = 0; i < 10; i++) {
+		scanf("%lf", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		min = 0;
+		for (j = 0; j < 10; j++) {
+			if (x[i] > x[j]) {
+				min++;
+			}
+		}
+		printf(" %d", min);
+	}
+	return 0;
+}
+
+13.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char x[10];
+	int i;
+	for (i = 0; i < 10; i++) {
+		scanf("%c", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		if ('A' <= x[i] && x[i] <= 'Z') {
+			printf(" %c", x[i]);
+		}
+	}
+	return 0;
+}
+
+14.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char x[10], y[10];
+	int i;
+	for (i = 0; i < 10; i++) {
+		scanf("%c", &x[i]);
+	}
+	getchar();
+	for (i = 0; i < 10; i++) {
+		scanf("%c", &y[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		printf(" %c %c", x[i], y[i]);
+	}
+	return 0;
+}
+
+15.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char x[10], y[10];
+	int i, j, cnt, a = 0;
+	for (i = 0; i < 10; i++) {
+		scanf("%c", &x[i]);
+	}
+	for (i = 0; i < 10; i++) {
+		cnt = 0;
+		for (j = 0; j < 10; j++) {
+			if (x[i] == x[j]) {
+				cnt++;
+			}
+		}
+		if (cnt == 1) {
+			y[a++] = x[i];
+		}
+	}
+	for (i = 0; i < a; i++) {
+		printf(" %c", y[i]);
+	}
+	return 0;
+}
+
+16.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, y[10];
+	char x[10];
+	int i;
+	scanf("%d", &N);
+	getchar();
+	for (i = 0; i < N; i++) {
+		scanf("%c", &x[i]);
+	}
+	for (i = 0; i < N; i++) {
+		scanf("%d", &y[i]);
+	}
+	for (i = 0; i < N; i++) {
+		printf("x[%d%%%d]=x[%d]=%c\n", y[i], N, y[i] % N, x[y[i] % N]);
+	}
+	return 0;
+}
