@@ -1,0 +1,240 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n[100];
+	int i, a = 0;
+	while (1) {	
+		scanf("%d", &n[a]);
+		if (n[a] <= 0)
+			break;
+		a++;
+		
+	}
+	for (i = a - 1; i >= 0; i--) {
+		if (n[i] % 2 == 0) {
+			printf(" %d", n[i]);
+		}
+	}
+	printf("\n");
+	for (i = a - 1; i >= 0; i--) {
+		if (n[i] % 2 == 1) {
+			printf(" %d", n[i]);
+		}
+	}
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int n, i, j, cnt[100] = { 0 }, a, max;
+	char ch[100];
+	scanf("%d", &n);
+	getchar();
+	for (i = 0; i < n; i++) {
+		scanf("%c", &ch[i]);
+	}
+	for (i = 0; i < n; i++) {
+		for (j = 0; j < n; j++) {
+			if (ch[i] == ch[j] && ch[i + 1] == ch[j + 1]) {
+				cnt[i]++;
+			}
+		}
+	}
+	max = cnt[0];
+	a = 0;
+	for (i = 0; i < n; i++) {
+		if (cnt[i] > max) {
+			max = cnt[i];
+			a = i;
+		}
+	}
+	printf("%c%c %d", ch[a], ch[a + 1], max);
+
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int N, i, x[100], j, cnt[100] = { 0 }, a = 0;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d", &x[i]);
+	}
+	for (i = 0; i < N; i++) {
+		a = 1;
+		for (j = 0; j < N; j++) {
+			if (x[i] <= x[j]) {
+				cnt[i] = a++;
+			}
+		}
+	}
+	for (i = 0; i < N; i++) {
+		printf(" %d", cnt[i]);
+	}
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int N, i, j, x = 0;
+	char a[100], b[100];
+	scanf("%d", &N);
+	getchar();
+	for (i = 0; i < N; i++) {
+		scanf("%c", &a[i]);
+	}
+	getchar();
+	for (i = 0; i < N; i++) {
+		scanf("%c", &b[i]);
+	}
+	for (i = 0; i < N; i++) {
+		if (a[i] > b[i]) {
+			x = 1;
+			break;
+		}
+		else if (a[i] < b[i]) {
+			x = 2;
+			break;
+		}
+	}
+	if (x == 1) {
+		for (i = 0; i < N; i++) {
+			printf("%c", b[i]);
+		}
+	}
+	else if(x == 2) {
+		for (i = 0; i < N; i++) {
+			printf("%c", a[i]);
+		}
+	}
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	char x[100];
+	int n, i, a;
+	scanf("%d", &n);
+	getchar();
+	for (i = 0; i < n; i++) {
+		scanf("%c", &x[i]);
+	}
+	for (i = 0; i < n / 2; i++) {
+		if (x[i] == x[n - 1 - i]) {
+			a = 1;
+		}
+		else {
+			a = 2;
+		}
+	}
+	if (a == 1) {
+		if (n % 2 == 1) {
+			for (i = 0; i <= n / 2; i++) {
+				printf("%c", x[i]);
+			}
+		}
+		else {
+			for (i = 0; i < n / 2; i++) {
+				printf("%c", x[i]);
+			}
+		}
+	}
+	else if (a == 2) {
+		printf("none");
+	}
+	return 0;
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int n = 0, x[100], i, max, j, cnt = 0;
+	while (1) {
+		scanf("%d", &x[n]);
+		if (x[n] == 0)
+			break;
+		n++;
+	}
+	max = x[0];
+	for (i = 0; i < n; i++) {
+		if (x[i] > max)
+			max = x[i];
+	}
+	for (i = 1; i <= max; i++) {
+		cnt = 0;
+		for (j = 0; j < n; j++) {
+			if (i == x[j]) {
+				cnt++;
+			}
+		}
+		if (cnt == 0) {
+			printf(" %d", i);
+		}
+	}
+	return 0;
+}
+
+7.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	char x[100];
+	int i, n = 0, j, cnt = 0, a[100] = { 0 };
+	while (1) {
+		scanf("%c", &x[n]);
+		if (x[n] == '*')
+			break;
+		n++;
+	}
+	for (i = 0; i < n; i++) {
+		cnt = 0;
+		for (j = 0; j < n; j++) {
+			if (x[i] == x[j]) {
+				cnt++;
+				a[j]++;
+			}
+		}
+		if (cnt >= 2 && a[i] == 1) {
+			printf("%c %d\n", x[i], cnt);
+		}
+	}
+	return 0;
+}
+
+8.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int N, x[20] = { 0 }, i, j, sum = 0, score;
+	double avg;
+	scanf("%d", &N);
+	for (i = 0; i < 3; i++) {
+		for (j = 0; j < N; j++) {
+			scanf("%d", &score);
+			sum += score;
+			x[j] += score;
+		}
+	}
+	avg = (double)sum / N;
+	printf("%.2lf", avg);
+	for (i = 0; i < N; i++) {
+		if (x[i] >= avg) {
+			printf(" A");
+		}
+		else {
+			printf(" B");
+		}
+	}
+	return 0;
+}
