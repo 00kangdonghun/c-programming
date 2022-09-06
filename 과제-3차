@@ -1,0 +1,218 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M; //정수N,M선언
+	int num2 = 0, num3 = 0; //N과M을포함하여 그사이의 존재하는 2의배수 개수 num2,3의배수 개수 num3선언 및 초기화
+	int sum2 = 0, sum3 = 0; //N과M을포함하여 그사이의 존재하는 2의배수 합 sum2,3의배수 합 sum3선언 및 초기화
+	int i; //정수i선언
+
+	scanf("%d%d", &N, &M);
+
+	if (M > N) { //M>N일때
+		for (i = N; i <= M; i++) //i가 N에서부터 1씩 더해지며 M까지 증가한다
+		{
+			if (i % 2 == 0) //i가 2로 나누어떨어질때
+			{
+				printf("%3d", i); //N과M을포함하여 그사이의 존재하는 2의배수 값들을 출력한다
+				num2++; //num2에 1을 더한다
+				sum2 += i; //sum2에 i를 더한다
+			}
+		}
+		printf(" cnt=%d", num2); //num2출력
+		printf(" sum=%d\n", sum2); //sum2출력
+		for (i = N; i <= M; i++)
+		{
+			if (i % 3 == 0) //i가 3으로 나누어떨어질때
+			{
+				printf("%3d", i); //N과M을포함하여 그사이의 존재하는 3의배수 값들을 출력한다
+				num3++;  //num3에 1을 더한다
+				sum3 += i;//sum3에 i를 더한다
+			}
+		}
+		printf(" cnt=%d", num3); //num3출력
+		printf(" sum=%d", sum3); //sum3출력
+	}
+	if (N > M) { //N>M일때
+		for (i = M; i <= N; i++) //i가 M에서부터 1씩 더해지며 N까지 증가한다
+		{
+			if (i % 2 == 0) //i가 2로 나누어떨어질때
+			{
+				printf("%3d", i); //N과M을포함하여 그사이의 존재하는 2의배수 값들을 출력한다
+				num2++; //num2에 1을 더한다
+				sum2 += i; //sum2에 i를 더한다
+			}
+		}
+		printf(" cnt=%d", num2); //num2출력
+		printf(" sum=%d\n", sum2); //sum2출력
+		for (i = M; i <= N; i++)
+		{
+			if (i % 3 == 0) //i가 3으로 나누어떨어질때
+			{
+				printf("%3d", i); // N과M을포함하여 그사이의 존재하는 3의배수 값들을 출력한다
+				num3++; //num3에 1을 더한다
+				sum3 += i; //sum3에 i를 더한다
+			}
+		}
+		printf(" cnt=%d", num3); //num3출력
+		printf(" sum=%d", sum3); //sum3출력
+	}
+	return 0; //0으로 반환
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int M, N; //정수M, N 선언
+	int i, j; //정수i, j선언
+	int cnt = 0, even = 0; //cnt,even선언 및 초기화
+	scanf("%d %d", &M, &N);
+	if (M <= N) { //N이 M이 크거나 같을때
+		for (i = M; i <= N; i++) { //i가 M에서 N까지 1씩 증가한다
+			cnt = 0;  //i의 약수의 개수를 세어야 하므로 초기화 
+			for (j = 1; j <= i; j++) { //j가 1에서 i까지 1씩 증가한다
+				if (i%j == 0) cnt++; //약수발견시 cnt가 1씩 증가
+			}
+			if (cnt % 2 == 0) even++; // 약수의 개수가 짝수일때 even을 1씩 증가
+		}
+	}
+	if (N < M) { //M이 N보다 클때
+		for (i = N; i <= M; i++) { //i가 N에서 M까지 1씩증가한다
+			cnt = 0;  //i의 약수의 개수를 세어야 하므로 초기화 
+			for (j = 1; j <= i; j++) { //j가 1에서 i까지 1씩 증가한다
+				if (i%j == 0) cnt++; //약수발견시 cnt가 1씩 증가
+			}
+			if (cnt % 2 == 0) even++; //약수의 개수가 짝수일때 even을 1씩 증가
+		}
+	}
+	printf("%d", even);  //짝수의 개수 출력 
+
+	return 0;//0으로 반환
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+int main() {
+	int n; //양의 정수 N선언
+	int i, space, star; //i,space,star선언
+	scanf("%d", &n);
+
+	for (i = 0; i < n; i++) //i를 0에서부터 n전까지 1씩 증가시킨다
+	{
+		for (space = 0; space < (n - i - 1); space++) //공백 n-i-1개
+		{
+			printf(" "); //공백 n-i-1개 출력
+		}
+		for (star = 0; star < (2 * i + 1); star++) //별 2*i+1개
+		{
+			printf("*"); //별 2*i+1개 출력		
+		}
+		printf("\n"); //줄바꿈
+		printf("\n"); //줄바꿈
+	}
+	for (i = n - 2; i >= 0; i--) //i를 n-2전에서 0까지 1씩 감소시킨다
+	{
+		for (space = 0; space < (n - i - 1); space++)//공백 n-i-1개
+		{
+			printf(" "); //공백 n-i-1개 출력
+		}
+		for (star = 0; star < (2 * i + 1); star++) //별 2*i+1개
+		{
+			printf("*"); //별 2*i+1개 출력
+		}
+		printf("\n"); //줄바꿈
+		printf("\n"); //줄바꿈
+	}
+	return 0; //0으로 반환
+}
+
+4-2.
+#pragma warning (disable: 4996) 
+#include<stdio.h> 
+
+int main() {
+	int find, T, last; //정수find, T, last 선언
+	int large = 0, small = 0, same = 0; // large, small, same선언 및 초기화
+	scanf("%d", &find);
+	while (1) //계속 반복한다
+	{
+		scanf("%d", &T);
+		if (T == 0)break; //T가 0이면 while문을 탈출한다
+		while (T > 0) //T가 0보다 클동안
+		{
+			last = T % 10;  //10으로 나눈 나머지(1의자리)를 last에 넣는다
+			if (last == find)  //last와 find가 같으면 
+				same++; //same을 1증가시킨다
+			else if (last > find) //last가 find보다 크면 
+				large++; //large를 1증가시킨다
+			else //last가 find보다 작으면
+				small++; //small을 1증가시킨다
+			T /= 10; //T를 10으로 나눈다
+		}
+	}
+	printf("%d %d %d\n", same, small, large); //same, small, large를 출력한다 
+
+	return 0; //0으로 반환
+}
+
+5-3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, odd = 0, even = 0; //정수 N선언,odd,even선언 및 초기화
+	scanf("%d", &N);
+	while (N) { //N에 대하여
+		if (N % 2) odd *= 10, odd += N % 10; //홀수 값들의 역수
+		else even *= 10, even += N % 10; //짝수 값들의 역수
+		N /= 10; //N을 10으로 나눈다
+	}
+	printf("%d %d\n", even, odd); //even, odd출력
+	return 0;//0으로 반환
+}
+
+6-2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N = 0; //삼각형 높이 N선언 및 초기화
+	int line, space, x; //line,space,x선언
+	while (2 <= N <= 20) { //N이 2이상 20이하의 수일때
+		scanf("%d", &N);
+		if (N == 0 || N == 1 || N < 0 || N % 3 == 0) { //N이 0또는 1또는 음수또는 3의배수일때
+			break; //반복문을 빠져나온다
+		}
+		else { //그외의 경우		
+			for (space = 1; space <= (N - 1); space++) //space가 1에서부터 N-1까지 1씩 증가한다
+			{
+				printf(" "); //공백을 출력한다
+			}
+			printf("X"); //X를 출력한다
+			printf("\n"); //줄바꿈을 한다
+			for (line = 1; line <= (N - 2); line++) //line이 1에서부터 N-2까지 1씩 증가한다
+			{
+				for (space = 1; space <= (N - line - 1); space++) //space가 1부터 N-line-1까지 1씩 증가한다
+				{
+					printf(" "); //공백을 출력
+				}
+				printf("X"); //X를 출력
+				for (space = 1; space <= 2 * line - 1; space++) //space가 1에서부터 2*line-1까지 1씩 증가한다
+				{
+					printf("O"); //O를 출력
+				}
+				printf("X"); //X를 출력
+				printf("\n"); //줄바꿈을 한다
+			}
+			for (x = 1; x <= (2 * N - 1); x++) //x는 1에서부터 2*N-1까지 1씩 증가한다
+			{
+				printf("X"); //X를 출력
+			}
+			printf("\n"); //줄바꿈을 한다
+		}
+	}
+	return 0; //0으로 반환
+}
