@@ -1,0 +1,75 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;
+	printf("입력 : ");
+	scanf("%x", &n);
+	printf("10진수: %d\n", n);
+	printf("8진수: %o\n", n);
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, m;
+	printf("가로: ");
+	scanf("%d", &n);
+	printf("세로: ");
+	scanf("%d", &m);
+	printf("넓이->%d\n", n*m);
+	return 0;
+}
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	double x, y;
+	printf("가로: ");
+	scanf("%lf", &x);
+	printf("세로: ");
+	scanf("%lf", &y);
+	printf("넓이->%.2f", x*y);
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c;
+	printf("가격 입력: ");
+	scanf("%d%d%d", &a, &b, &c);
+	printf("상품1: %d원\n", a);
+	printf("상품2: %d원\n", b);
+	printf("상품3: %d원\n", c);
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	double n;
+	printf("실수 입력: ");
+	scanf("%lf", &n);
+	printf("반올림 정수 출력: %.0lf", n);
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c;
+	scanf("%d/%d/%d", &a, &b, &c);
+	printf("%04d년 %02d월 %02d일", a, b, c);
+	return 0;
+}
