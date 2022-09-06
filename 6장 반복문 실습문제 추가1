@@ -1,0 +1,136 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char ch1, ch2;
+	int cnt1 = 0, cnt2 = 0;
+	scanf("%c", &ch1);
+	while (ch1 != '.') {
+		scanf("%c", &ch2);
+		if (ch1 == 'd'&&ch2 == 'o') {
+			cnt1++;
+		}
+		if (ch1 == 'r'&&ch2 == 'e') {
+			cnt2++;
+		}
+		ch1 = ch2;
+	}
+	printf("do=%d\n", cnt1);
+	printf("re=%d\n", cnt2);
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, i;
+	while (1) {
+		scanf("%d", &n);
+		if (n == 0)
+			break;
+		for (i = 1; i <= n; i++) {
+			if (n%i == 0) {
+				printf("%d ", i);
+			}
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, i, a;
+	while (1) {
+		scanf("%d", &n);
+		if (n == 0)
+			break;
+		a = 1;
+		for (i = 1; i <= n; i++) {
+			a *= i;
+		}
+		printf("%d\n", a);
+	}
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M, i, sum;
+	scanf("%d", &N);
+	scanf("%d", &M);
+	sum = M;
+	for (i = 1; i < N; i++) {
+		scanf("%d", &M);
+		sum += M;
+		printf("%d\n", sum);
+		sum = M;
+	}
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M, i, x, y;
+	while (1) {
+		scanf("%d", &N);
+		scanf("%d", &M);
+		if (N == 0 || M == 0)
+			break;
+		x = N > M ? N : M;
+		y = N < M ? N : M;
+		for (i = y; i >1; i--) {
+			if (N%i == 0 && M%i == 0) {
+				printf("%d\n", i);
+				break;
+			}
+		}
+	}
+	return 0;
+}
+
+6.없음
+
+7.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, a = 0;
+	scanf("%d", &N);
+	while (N) {
+		a = a * 10 + N % 10;
+		N /= 10;
+	}
+	printf("%d", a*a);
+	return 0;
+}
+
+8.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	for (i = 1; i <= 6; i++) {
+		for (j = 1; j <= 6; j++) {
+			if ((i + j) % N == 0) {
+				printf("%d %d\n", i, j);
+			}
+		}
+	}
+	return 0;
+}
