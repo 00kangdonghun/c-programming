@@ -1,0 +1,138 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b;
+	double avg;
+	scanf("%d%d", &a, &b);
+	avg = a * 0.4 + b * 0.6;
+	if (avg >= 85.5) {
+		printf("A");
+	}
+	else if (avg >= 75.5) {
+		printf("B");
+	}
+	else if (avg >= 60.5) {
+		printf("C");
+	}
+	else {
+		printf("F");
+	}
+	if (avg >= 60 || b >= 90) {
+		printf(" PASS");
+	}
+	else {
+		printf(" FAIL");
+	}
+	return 0;
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	int ans, a, b, i;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		scanf("%d%d%d", &ans, &a, &b);
+		if (a > ans&&b > ans) {
+			printf("draw\n");
+		}
+		else if (a == b) {
+			printf("draw\n");
+		}
+		else if (a > ans&&ans >= b) {
+			printf("B\n");
+		}
+		else if (a <= ans&&b > ans) {
+			printf("A\n");
+		}
+		else if (ans >= a&&ans >= b) {
+			if (ans - a > ans - b) {
+				printf("B\n");
+			}
+			else if(ans-a<ans-b) {
+				printf("A\n");
+			}
+			else {
+				printf("draw\n");
+			}
+		}
+	}
+	return 0;
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a = 0, b = 0, c = 0, d = 0;
+	char ch;
+	while (1) {
+		scanf("%c", &ch);
+		if (ch == '*')
+			break;
+		if ('a' <= ch && ch <= 'z') {
+			a++;
+		}
+		else if ('A' <= ch && ch <= 'Z') {
+			b++;
+		}
+		else if ('0' <= ch && ch <= '9') {
+			ch -= '0';
+			c += ch;
+		}
+		else {
+			d++;
+		}
+	}
+	printf("%d ", b);
+	printf("%d ", a);
+	printf("%d ", c);
+	printf("%d ", d);
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int M1, M2, N1, N2;
+	scanf("%d%d\n", &M1, &M2);
+	scanf("%d%d", &N1, &N2);
+
+	for (int j = N1; j <= N2; j++)
+	{
+		for (int i = M1; i <= M2; i++)
+		{
+			printf(" %d", (i*j));
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, a = 0, M, s, n;
+	scanf("%d", &N);
+	n = N;
+	while (N) {
+		s = n * 10;
+		a = a * 10 + N % 10;
+		N /= 10;
+		n = s;
+	}
+	M = s + a;
+	printf("%d\n", M);
+	printf("%d", M % 131);
+	return 0;
+}
