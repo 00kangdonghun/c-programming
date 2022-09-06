@@ -1,0 +1,124 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	double F, x, mingap1, mingap2, near;
+	scanf("%lf", &F);
+	scanf("%lf", &x);
+	mingap1 = F - x >= 0 ? F - x : x - F;
+	near = x;
+	while (1) {
+		scanf("%lf", &x);
+		if (x <= 1.00)
+			break;
+		mingap2 = F - x >= 0 ? F - x : x - F;
+		if (mingap1 > mingap2) {
+			mingap1 = mingap2;
+			near = x;
+		}
+	}
+	printf("%.2lf", near);
+	return 0;
+}
+
+2.없음
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, sum = 0, a = 0;
+	scanf("%d", &N);
+	for (i = 1; i <= N; i++) {
+		if (N%i == 0) {
+			sum += i;
+		}
+	}
+	while (sum) {
+		a = a * 10 + sum % 10;
+		sum /= 10;
+	}
+	printf("%d", a);
+	return 0;
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, i, j, x;
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		x = i + 1;
+		for (j = n - 1; j > i; j--) {
+			printf(" ");
+		}
+		for (j = 0; j < 2 * i + 1; j++) {
+			if (i <= j) {
+				printf("%d", x);
+				x++;
+			}
+			else {
+				printf("%d", x);
+				x--;
+			}
+		}
+		printf("\n");
+	}
+
+
+
+	return 0;
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M = 0, i, j;
+	scanf("%d", &N);
+	while (N) {
+		M = M * 10 + N % 10;
+		N /= 10;
+	}
+	for (i = 2; i <= M; i++) {
+		for (j = 2; j <= i; j++) {
+			if (i%j == 0) {
+				break;
+			}
+		}
+		if (i == j) {
+			printf(" %d", i);
+		}
+	}
+	return 0;
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c, mid;
+	while (1) {
+		scanf("%d%d%d", &a, &b, &c);
+		if (a <= 0 || b <= 0 || c <= 0)
+			break;
+		if (a > b) {
+			mid = a;
+			a = b;
+			b = mid;
+		}
+		if (b > c) {
+			mid = b;
+			b = c;
+			c = mid;
+		}
+		printf("%d\n", b);
+	}
+	return 0;
+}
