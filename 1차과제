@@ -1,0 +1,89 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char ch; //문자 ch선언
+	scanf("%c", &ch); //ch입력
+	char x; //문자 x선언
+	x=('a' <= ch && ch <= 'z') ? ch - 'a' + 'A' : ch; //소문자 입력시 대문자로 변환,대문자 입력시 그대로 
+	printf("%c", x); //x를 출력
+	return 0; //0으로 반환
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n; //연도 n선언
+	scanf("%d", &n);//연도 n입력
+	(n % 4 == 0 && n % 100 != 0) || (n % 400 == 0) ? printf("L") : printf("C");
+	//윤년일 경우 L출력 평년일 경우 C출력
+	return 0; //0으로 반환
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;//정수 n선언
+	scanf("%d", &n); //정수 n입력
+	int a, b, c; //정수a,b,c선언
+	a = n / 100; //a=백의 자리수
+	b = n % 100 / 10;//b=십의 자리수
+	c = n % 100 % 10;//c=일의 자리수
+	(a == b) && (b == c) ? printf("3") : (a != b) && (b != c) && (a != c) ? printf("1") : printf("2");
+	//a,b,c가 모두 같으면 3출력, a,b,c가 모두 다르면 1출력, 그외의 경우는 2 출력
+	return 0; //0으로 반환
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;//정수 n선언
+	scanf("%d", &n); //정수 n입력
+	int a, b, c, d; //정수 a,b,c,d선언
+	a = n / 1000; //a=천의 자리수
+	b = n % 1000 / 100; //b=백의 자리수
+	c = n % 1000 % 100 / 10; //c=십의 자리수
+	d = n % 1000 % 100 % 10; //d=일의 자리수
+	int x; //정수 x선언
+	x = d * 1000 + c * 100 + b * 10 + a; //x는 n을 뒤집은 숫자
+	(n > x) ? printf("%d", n - x) : printf("%d", x - n);
+	//n>x이면 n-x를 출력 이외의 경우 x-n을 출력
+
+	return 0; //0으로 반환
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;//정수 n선언
+	scanf("%d", &n); //정수 n입력
+	int a, b, c; //정수a,b,c선언
+	a = n / 100; //a=백의 자리수
+	b = n % 100 / 10;//b=십의 자리수
+	c = n % 100 % 10;//c=일의 자리수
+	(a > b) && (a > c) ? printf("%d", a) : (b > a) && (b > c) ? printf("%d", b) : printf("%d", c);
+	//각 자리수 중 가장 큰 값 출력
+	return 0; //0으로 반환
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a,b,c;//정수 a,b,c선언
+	scanf("%d%d%d", &a, &b, &c); //정수 a,b,c입력
+	(a > b) && (b > c) || (c > b) && (b > a) ? printf("%d", b) : (b > a) && (a > c) || (c > a) && (a > b) ? printf("%d", a) : printf("%d", c);
+	//a,b,c중 중앙값을 출력
+	
+	return 0;//0으로 반환
+}
