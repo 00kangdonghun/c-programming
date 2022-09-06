@@ -1,0 +1,377 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	int cnt = 1;
+	scanf("%d", &N);
+	while (N > cnt) {
+		if (N % cnt == 0)
+			printf("%d ", cnt);
+		cnt++;
+	}
+	printf("%d\n", N);
+	return 0;//0으로 반환
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	scanf("%d", &N);
+	int sum = N;
+	while (N != 0) {
+		scanf("%d", &N);
+		sum += N;
+	}
+	printf("%d", sum);
+	return 0;//0으로 반환
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M, cnt = 0;
+	scanf("%d", &N);
+	do {
+		scanf("%d", &M);
+		if (N > M) {
+			printf("%d<?\n", M);
+		}
+		else if (M > N) {
+			printf("%d>?\n", M);
+		}
+		else {
+			printf("%d==?\n", M);
+		}
+		cnt++;
+	} while (N != M);
+	printf("%d\n", cnt);
+	return 0;//0으로 반환
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n, m, a, i;
+	scanf("%d%d", &n, &m);
+	a = n > m ? m : n;
+	for (i = a; i > 0; i--) {
+		if (n % i == 0 && m % i == 0) {
+			printf("%d\n", i);
+			break;
+		}
+	}
+	return 0;//0으로 반환
+}
+
+5-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	for (i = 0; i <= N; i++) {
+		for (j = 0; j < i; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;//0으로 반환
+}
+
+5-2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	for (i = N; i >= 0; i--) {
+		for (j = 0; j < i; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;//0으로 반환
+}
+
+5-3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		for (j = 0; j < 2 * i + 1; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;//0으로 반환
+}
+
+5-4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	for (i = N-1; i >= 0; i--) {
+		for (j = 0; j < 2 * i + 1; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;//0으로 반환
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		for (j = 0; j < 4 - i; j++) {
+			printf(" ");
+		}
+		for (j = 0; j < 2 * i + 1; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	return 0;//0으로 반환
+}
+
+6-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		for (j = 0; j < N; j++) {
+			if (i == j) {
+				printf(" X");
+			}
+			else if (i + j == N - 1) {
+				printf(" X");
+			}
+			else {
+				printf(" O");
+			}
+		}
+		printf("\n");
+	}
+	return 0; //0으로 반환
+}
+
+6-2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j, cnt = 1;
+	scanf("%d", &N);
+	for (i = 0; i < N; i++) {
+		for (j = 0; j < N; j++) {
+			printf(" %d", cnt%10);
+			cnt++;
+		}
+		printf("\n");
+	}
+	return 0; //0으로 반환
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, j, i = 0;
+	scanf("%d", &N);
+	while (i < N) {
+		for (j = 1; j <= N; j++) {
+			printf(" %d", (j + i) % 10);
+		}
+		printf("\n");
+		i++;
+	}
+	return 0;//0으로 반환
+}
+
+7.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, j;
+	scanf("%d", &N);
+	int cnt = 1;
+	for (i = 0; i < N; i++) {
+		for (j = 0; j <= i; j++) {
+			printf(" %d", cnt%10);
+			cnt++;
+		}
+		printf("\n");
+	}
+	return 0;//0으로 반환
+}
+
+8.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M, i, j, a;
+	scanf("%d%d", &N, &M);
+	for (i = N; i <= M; i++) {
+		printf("%d!=", i);
+		a = i;
+		for (j = 1; j < i; j++) {
+			printf("%d*", j);
+			a *= j;
+		}
+		printf("%d=%d\n", i, a);
+	}
+	return 0;//0으로 반환
+}
+
+9-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, a, cnt = 0;
+	scanf("%d", &N);
+	while (N > 0) {
+		a = N % 10;
+		N = N / 10;
+		if (a == 3) {
+			cnt++;
+		}
+	}
+	printf("%d", cnt);
+	return 0;//0으로 반환
+}
+
+9.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, a, cnt = 0;
+	scanf("%d", &N);
+	for (i = 1; i <= N; i++) {
+		a = i;
+		while (a) {
+			if (a % 10 == 3)
+				cnt++;
+			a /= 10;
+		}
+	}
+	printf("%d\n", cnt);
+	return 0;//0으로 반환
+}
+
+10-1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, a, sum = 0;
+	scanf("%d", &N);
+	while (N > 0) {
+		a = N % 10;
+		N = N / 10;
+		sum += a;
+	}
+	printf("%d", sum);
+	return 0;//0으로 반환
+}
+
+10.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, a;
+	scanf("%d", &N);
+	while (N >= 10) {
+		a = 0;
+		while (N) {
+			a += N % 10;
+			N /= 10;
+		}
+		N = a;
+	}
+	printf("%d", N);
+	return 0;//0으로 반환
+}
+
+11.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	int i, j, k;
+	scanf("%d", &N);
+	for (i = 1; i <= 6; i++) {
+		for (j = 1; j <= 6; j++) {
+			for (k = 1; k <= 6; k++) {
+				if (i + j + k == N)
+					printf("%d %d %d\n", i, j, k);
+			}
+		}
+	}
+	return 0;//0으로 반환
+}
+
+12.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, i, sum = 0;
+	scanf("%d", &N);
+	for (i = 1; i <= N; i++) {
+		sum += i;
+	}
+	printf("%d", sum);
+	return 0;//0으로 반환
+}
+
+13.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, sum = 0, cnt = 0;
+	double avg;
+	while (1) {
+		scanf("%d", &N);
+		if (N <= 0)
+			break;
+		if (N > 100)
+			continue;
+		sum += N;
+		cnt++;
+	}
+	avg = (double)sum / cnt;
+	printf("%d %.2f %d", sum, avg, cnt);
+	return 0;//0으로 반환
+}
