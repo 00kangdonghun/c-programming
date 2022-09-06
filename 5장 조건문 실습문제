@@ -1,0 +1,374 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	scanf("%d", &N);
+	if (N < 0) {
+		printf("cold, indoor");
+	}
+	else if (N>=0 && N<40) {
+		printf("moderate, outdoor");
+	}
+	else {
+		printf("hot, indoor");
+	}
+	return 0;//0으로 반환
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M;
+	scanf("%d%d", &N, &M);
+	int x, y;
+	x = N > M ? N : M;
+	y = N < M ? N : M;
+	if (y*y == x) {
+		printf("%d*%d=%d", y, y, x);
+	}
+	else {
+		printf("none");
+	}
+	return 0;//0으로 반환
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c, d, e;
+	scanf("%d%d%d%d%d", &a, &b, &c, &d, &e);
+	int sum = 0;
+	if (a > 0)
+		sum += a;
+	if (b > 0)
+		sum += b;
+	if (c > 0)
+		sum += c;
+	if (d > 0)
+		sum += d;
+	if (e > 0)
+		sum += e;
+	printf("%d", sum);
+	return 0;//0으로 반환
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char ch;
+	scanf("%c", &ch);
+	if ('a' <= ch && ch <= 'z') {
+		printf("%c", ch - 32);
+	}
+	else if ('A' <= ch && ch <= 'Z') {
+		printf("%c", ch + 32);
+	}
+	else {
+		printf("none");
+	}
+	return 0;//0으로 반환
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int n;
+	scanf("%d", &n);
+	if (n % 2 == 0 && n % 3 == 0 && n % 5 == 0) {
+		printf("A");
+	}
+	else if (n % 2 == 0 && n % 3 == 0) {
+		printf("B");
+	}
+	else if (n % 2 == 0 && n % 5 == 0) {
+		printf("C");
+	}
+	else if (n % 3 == 0 && n % 5 == 0) {
+		printf("D");
+	}
+	else if (n % 2 == 0 || n % 3 == 0 || n % 5 == 0) {
+		printf("E");
+	}
+	else {
+		printf("N");
+	}
+	return 0;//0으로 반환
+}
+
+6.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a > b) {
+		if (c > a) printf("%d %d\n", c, b);
+		else if (c > b) printf("%d %d\n", a, b);
+		else printf("%d %d\n", a, c);
+	}
+	else {
+		if (c > b) printf("%d %d\n", c, a);
+		else if (c > a) printf("%d %d\n", b, a);
+		else printf("%d %d\n", b, c);
+	}
+	return 0;//0으로 반환
+}
+
+7.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M;
+	scanf("%d%d", &N, &M);
+	if (N == M) { 
+		printf("RIGHT\n"); 
+	}
+	else {
+		if (N > M) {
+			printf("UP\n");
+		}
+		else {
+			printf("DOWN\n"); 
+		}
+		scanf("%d", &M);
+		if (N == M) {
+			printf("RIGHT\n");
+		}
+		else {
+			if (N > M) {
+				printf("UP\n");
+			}
+			else {
+				printf("DOWN\n");
+			}
+		}
+	}
+	return 0;//0으로 반환
+}
+
+8.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N;
+	scanf("%d", &N);
+	if (N % 4 != 0){
+		printf("common year");
+	}
+	else {
+		if (N % 100 != 0) {
+			printf("leap year");
+		}
+		else {
+			if (N % 400 != 0) {
+				printf("common year");
+			}
+			else {
+				printf("leap year");
+			}
+		}
+	}
+	return 0;//0으로 반환
+}
+
+9.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c;
+	int x, y, z;
+	scanf("%d/%d/%d", &a, &b, &c);
+	scanf("%d/%d/%d", &x, &y, &z);
+	int sum1, sum2;
+	sum1 = a * 10000 + b * 100 + c;
+	sum2 = x * 10000 + y * 100 + z;
+	if (sum1 > sum2) {
+		printf("%02d/%02d/%02d", x, y, z);
+	}
+	else if (sum2 > sum1) {
+		printf("%02d/%02d/%02d", a, b, c);
+	}
+	else {
+		printf("%02d/%02d/%02d*", a, b, c);
+	}
+	return 0;//0으로 반환
+}
+
+10.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+	double avg;
+	avg = (a + b + c) / 3;
+	if (avg >= 91.5) {
+		printf("A");
+	}
+	else if (avg >= 85.5) {
+		printf("B");
+	}
+	else if (avg >= 80.5) {
+		printf("C");
+	}
+	else {
+		printf("F");
+	}
+	if (a == 100 || b == 100 || c == 100) {
+		printf("Good");
+	}
+	if (a < 60 || b < 60 || c < 60) {
+		printf("Bad");
+	}
+	return 0;//0으로 반환
+}
+
+11.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+	int x, y, z;
+	scanf("%d%d%d", &x, &y, &z);
+	int strike = 0, ball = 0;
+	if (x == a || x == b || x == c) {
+		if (x == a) {
+			strike++;
+		}
+		else {
+			ball++;
+		}
+	}
+	if (y == a || y == b || y == c) {
+		if (y == b) {
+			strike++;
+		}
+		else {
+			ball++;
+		}
+	}
+	if (z == a || z == b || z == c) {
+		if (z == c) {
+			strike++;
+		}
+		else {
+			ball++;
+		}
+	}
+	printf("%dS%dB", strike, ball);
+	return 0;//0으로 반환
+}
+
+12.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M;
+	scanf("%d%d", &N, &M);
+	if (N == 1) {
+		M -= 500;
+		printf("Americano\n");
+	}
+	if (N == 2) {
+		M -= 400;
+		printf("Cafe Latte\n");
+	}
+	if (N == 3) {
+		M -= 300;
+		printf("Lemon Tea\n");
+	}
+	printf("%d %d\n", M / 500, M% 500 / 100);
+	return 0;//0으로 반환
+}
+
+13.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int kor, math, eng;
+	double avg;
+	scanf("%d%d%d", &kor, &math, &eng);
+	avg = (kor + math + eng) / 3.0;
+	printf("%.2lf\n", avg);
+	if (avg >= 75) { 
+		printf("A\n"); 
+	}
+	else if (avg >= 50) {
+		printf("B\n");
+	}
+	else {
+		printf("F\n");
+	}
+	return 0;//0으로 반환
+}
+
+14.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N, M;
+	scanf("%d%d", &N, &M);
+	switch (N) {
+	case 1:
+		M -= 500;
+		printf("Americano\n");
+		break;
+	case 2:
+		M -= 400;
+		printf("Cafe Latte\n");
+		break;
+	case 3:
+		M -= 300;
+		printf("Lemon Tea\n");
+		break;
+	}
+	printf("%d %d\n", M / 500, M% 500 / 100);
+	return 0;//0으로 반환
+}
+
+15.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int kor, math, eng;
+	double avg;
+	scanf("%d%d%d", &kor, &math, &eng);
+	avg = (kor + math + eng) / 3.0;
+	printf("%.2lf\n", avg);
+	switch (avg >= 75) {
+	case 1:
+		printf("A");
+		break;
+	case 0:
+		switch (avg >= 50) {
+		case 1:
+			printf("B");
+			break;
+		case 0:
+			printf("F");
+			break;
+		}
+	}
+	return 0;//0으로 반환
+}
