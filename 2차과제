@@ -1,0 +1,180 @@
+1.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	char ch; //문자 ch선언
+	scanf("%c", &ch); //문자 ch입력
+	if ('a' <= ch && ch <= 'z') { //ch가 소문자일때
+ 		printf("%c", ch - 32); //대문자로 변화하여 출력
+	}
+	else if ('A' <= ch && ch <= 'Z') { //ch가 대문자일때
+		printf("%c", ch + 32); //소문자로 변화하여 출력
+	}
+	else { //그외의 경우
+		printf("%c", ch); //문자 그대로 출력
+	}
+	return 0;//0으로 반환
+}
+
+2.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c; //번호a,b,c선언
+	scanf("%d%d%d", &a, &b, &c); //a,b,c입력
+	int sum = 0; //sum=0선언
+	if (a == 1) { //a==1일때
+		printf("Pizza\n"); //pizza출력
+		sum += 15000; //sum에 15000더하기
+	}
+	else if (a == 2) { //a==2일때
+		printf("Burger\n"); //burger출력
+		sum += 5000; //sum에 5000더하기
+	}
+	else if (a == 3) { //a==3일때
+		printf("Salad\n"); //salad출력
+		sum += 4500; //sum에 4500더하기
+	}
+	else if (a == 4) { //a==4일때
+		printf("Ice cream\n"); //ice cream 출력
+		sum += 800; //sum에 800더하기
+	}
+	else if (a == 5) { //a==5일때
+		printf("Beverage\n"); //beverage출력
+		sum += 500; //sum에 500더하기
+	}
+	else { //그외의 경우 
+		printf("None\n"); //none출력
+		sum += 0; //sum에 0더하기
+	}
+
+	if (b == 1) { //b==1일때
+		printf("Pizza\n"); //pizza출력
+		sum += 15000; //sum에 15000더하기
+	}
+	else if (b == 2) { //b==2일때
+		printf("Burger\n"); //burger출력
+		sum += 5000; //sum에 5000더하기
+	}
+	else if (b == 3) { //b==3일때
+		printf("Salad\n"); //salad출력
+		sum += 4500; //sum에 4500더하기
+	}
+	else if (b == 4) { //b==4일때
+		printf("Ice cream\n"); //ice cream출력
+		sum += 800; //sum에 800더하기
+	}
+	else if (b == 5) { //b==5일때 
+		printf("Beverage\n"); //beverage출력
+		sum += 500; //sum에 500더하기
+	}
+	else { //그외의경우
+		printf("None\n"); //none출력
+		sum += 0; //sum에 0더하기
+	}
+
+	if (c == 1) { //c==1일때
+		printf("Pizza\n"); //pizza출력
+		sum += 15000; //sum에 15000더하기
+	}
+	else if (c == 2) { //c==1일때
+		printf("Burger\n"); //burger출력
+		sum += 5000; //sum에 5000더하기
+	}
+	else if (c == 3) { //c==1일때
+		printf("Salad\n"); //salad출력
+		sum += 4500; //sum에 4500더하기
+	}
+	else if (c == 4) { //c==1일때
+		printf("Ice cream\n"); //ice cream출력
+		sum += 800; //sum에 800더하기
+	}
+	else if (c == 5) { //c==1일때
+		printf("Beverage\n"); //beverage출력
+		sum += 500; //sum에 500더하기
+	}
+	else { //그외의 경우
+		printf("None\n"); //none출력
+		sum += 0; //sum에 0더하기
+	}
+	printf("Total:%dwon", sum); //sum출력
+
+
+	return 0;//0으로 반환
+}
+
+3.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int a, b, c; //상수 a,b,c선언
+	scanf("%d%d%d", &a, &b, &c); //a,b,c입력
+	if (a + b == c) { //a+b==c일때
+		printf("+\n"); //+출력
+	}
+	if (a - b == c) { //a-b==c일때
+		printf("-\n"); //-출력
+	}
+	if (a * b == c) { //a*b==c일때
+		printf("*\n"); //*출력
+	}
+	if (a / b == c) { //a/b==c일때
+		printf("/\n"); // /출력
+	}
+	else if (a + b != c && a - b != c && a * b != c && a / b != c) { //사칙연산이 안될 경우
+		printf("Incorrect"); //Incorrect출력
+	}
+	return 0;//0으로 반환
+}
+
+4.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int N; //숫자N선언
+	char ch; //문자ch선언
+	scanf("%c", &ch); //문자 ch입력
+	scanf("%d", &N); //숫자 N입력
+	if (ch >= 'a'&&ch <= 'z') //ch가 소문자일때
+		if (ch + N <= 'z') //ch가 소문자이면서 입력받은 숫자만큼 증가한 문자가 'z'를 넘지 않을경우
+			printf("%c", ch + N); //ch+N출력
+		else //ch가 소문자이면서 입력받은 숫자만큼 증가한 문자가 'z'를 넘을 경우
+			printf("%c", (ch - 'a' + N) % 26 + 'a'); //(ch - 'a' + N)%26+'a'출력
+
+	else if (ch >= 'A'&&ch <= 'Z') //ch가 대문자일때
+		if (ch + N <= 90) //ch가 대문자이면서 입력받은 숫자만큼 증가한 문자가 'Z'를 넘지 않을경우
+			printf("%c", ch + N); //ch+N출력
+		else //ch가 대문자이면서 입력받은 숫자만큼 증가한 문자가 'Z'를 넘지 않을경우
+			printf("%c", (ch - 'A' + N) % 26 + 'A'); //(ch - 'A' + N) % 26 + 'A'출력
+	else //ch가 대,소문자가 아닌경우
+		printf("%c", ch); //ch출력
+	return 0;//0으로 반환
+}
+
+5.
+#pragma warning (disable: 4996)
+#include<stdio.h>
+
+int main() {
+	int max, min, i, num[5]; //max,min,inum[5]선언
+	scanf("%d", &num[0]); //num에 입력
+	max = num[0]; //max에 num[0]저장
+	min = num[0]; //min에 num[0]저장
+
+	for (i = 1; i < 5; i++) { //i=1부터 i<5까지
+		scanf("%d", &num[i]); 
+		if (max < num[i]) { //num[i]가 max보다 클때
+			max = num[i]; //max에 num[i]저장
+		}
+		if (min > num[i]) { //num[i]가 min보다 작을때
+			min = num[i]; //min에 num[i]저장
+		}
+	} 
+	printf("max: %d\n", max); //max출력
+	printf("min: %d\n", min); //min출력
+	return 0;//0으로 반환
+}
